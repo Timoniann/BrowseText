@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SpeedTest</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div class="answer"></div>
+	<script type="text/javascript">
+	var count = 0;
+	var hold = true;
+
+		setTimeout(function() {
+			hold = false;
+			var div = document.getElementsByClassName('answer')[0]
+			div.innerHTML = count;
+		}, 1 * 1000);
+
+		function Calc(ms) {
+			var time = new Date().getTime();
+				
+			while(hold)
+			{ 
+				count++;
+				var array = [];
+				for (var i = 1000; i >= 0; i--) {
+					array[i] = count * count * Math.PI * Math.E + Math.abs(-12353324) / Math.log(i);
+				}
+				
+
+				var now = new Date().getTime();
+				if (now - time >= ms){
+					return;
+				}
+
+			}
+		}
+
+		Calc(1000);
+
+		
+	</script>
+</body>
+</html>
